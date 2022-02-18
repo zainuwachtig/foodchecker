@@ -12,7 +12,7 @@ De oplossing voor de user story is de foodchecker, deze scant barcodes met behul
 * Open Food World API (https://world.openfoodfacts.org/data)
 
 ## License
-MIT
+[MIT](LICENSE)
 
 <!-- How about a section that describes how to install this project? 🤓 -->
 
