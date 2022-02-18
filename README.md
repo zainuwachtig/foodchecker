@@ -1,3 +1,4 @@
+![](banner.png)
 # Foodchecker
 
 ## User Story
