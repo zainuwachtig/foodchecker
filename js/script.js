@@ -1,20 +1,23 @@
-const camera = document.querySelector('video');
-const baseUrl = 'https://world.openfoodfacts.org/api/v0/product/';
-const barcodeDetector = new BarcodeDetector({formasts: ['ean_13', 'ean_8', 'upc_a', 'upc_e']});
+async function detectCamera() {
+  const camera = document.querySelector('video');
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: {
+      facingMode: {
+        ideal: "user"
+      }
+    },
+  });
+  camera.srcObject = stream;
+  await camera.play();
+  detectBarcode(camera)
+};
+
+detectCamera()
 
 // https://dev.to/ycmjason/detecting-barcode-from-the-browser-d7n
-async function detectBarcode() {
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video: {
-        facingMode: {
-          ideal: "user"
-        }
-      },
-    });
-    camera.srcObject = stream;
-    await camera.play();
-    
+async function detectBarcode(camera) {
     window.setInterval(async () => {
+      const barcodeDetector = new BarcodeDetector({formats: ['ean_13', 'ean_8', 'upc_a', 'upc_e']});
       const barcodes = await barcodeDetector.detect(camera);
       if (barcodes.length <= 0) {
         return;
@@ -24,9 +27,9 @@ async function detectBarcode() {
       }
     }, 1000)
 };
-detectBarcode()
 
 function getData(barcode) {
+  const baseUrl = 'https://world.openfoodfacts.org/api/v0/product/';
     fetch(baseUrl + barcode)
         .then(response => response.json())
         .then((data) => {
@@ -35,8 +38,13 @@ function getData(barcode) {
                 brand: data.product.brand,
                 categories: data.product.categories,
                 image: data.product.image_url
-                }
+            }
                 console.log(product)
+                // if (product.name === undefined) {
+                //   console.log('undefined')
+                // } else {
+                //   console.log('gevonden')
+                // }
                 const markup = `
                     <img src=${product.image}>
                     <h1>${product.name}</h1>
