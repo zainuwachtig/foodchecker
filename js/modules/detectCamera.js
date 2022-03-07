@@ -2,6 +2,7 @@ import { detectBarcode } from './detectBarcode.js'
 
 async function detectCamera() {
     const camera = document.querySelector('video');
+    const melding = document.querySelector('.melding');
     const stream = await navigator.mediaDevices.getUserMedia({
       video: {
         facingMode: {
@@ -10,8 +11,13 @@ async function detectCamera() {
       },
     });
     camera.srcObject = stream;
+    // Deze if statement misschien beter in de states.js zetten?
+    if (stream.getVideoTracks().length > 0) {
+        melding.classList.add('onzichtbaar')
+    }
     await camera.play();
     detectBarcode(camera)
+    
 };
 
 export { detectCamera }

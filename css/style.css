@@ -5,10 +5,18 @@
   font-family: "Lato", sans-serif;
 }
 
+:root {
+  --color-default: white;
+  --color-emptystate: #c6972c;
+  --color-errorstate: #97392d;
+}
+
+body {
+  overflow: hidden;
+}
+
 video {
   width: 100vw;
-  /* height: 100vh;
-  object-fit: cover; */
 }
 
 header {
@@ -16,26 +24,33 @@ header {
   justify-content: center;
 }
 
-/* melding */
+/* Melding */
 .melding {
   display: flex;
-  max-width: 66vw;
+  width: 15em;
   padding: 1em;
   border-radius: 1em;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-  margin-top: 1em;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 1em auto;
+
+  background-color: var(--color-default);
 }
 
-header svg {
+.melding svg {
   width: 2em;
   margin-right: 1.2em;
 }
 
-.product-gevonden svg {
-  width: 2em;
+.onzichtbaar {
+  display: none;
 }
 
+/* Melding - Product gevonden */
 .product-gevonden img {
   max-height: 4em;
 }
