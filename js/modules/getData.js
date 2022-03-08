@@ -1,4 +1,4 @@
-import { melding, emptyState, loadingState } from './states.js'
+import { melding, emptyState, loadingState, errorState } from './states.js'
 
 function getData(barcode) {
     const baseUrl = 'https://world.openfoodfacts.org/api/v0/product/';
@@ -32,7 +32,9 @@ function getData(barcode) {
                 } else {
                     emptyState();
                 }
-                
+            })
+            .catch((err) => {
+                errorState();
             })
 };
 

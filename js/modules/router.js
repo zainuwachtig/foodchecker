@@ -3,7 +3,7 @@ import { getData } from './getData.js'
 
 function handleRoutes() {
     routie({
-		':barcode': barcode => {
+		'product/:barcode': barcode => {
 			getData(barcode)
 		},
 	})

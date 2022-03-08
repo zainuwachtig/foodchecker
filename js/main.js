@@ -1,4 +1,4 @@
-// TO-DO: Activity Diagram, ProductID route, detailpagina product, Error State en Loading State (afbeelding aanpassen)
+// TO-DO: Activity Diagram, detailpagina product en README
 
 import { detectCamera } from './modules/detectCamera.js'
 import { handleRoutes } from './modules/router.js'

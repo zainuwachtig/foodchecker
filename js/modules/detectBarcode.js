@@ -8,8 +8,8 @@ async function detectBarcode(camera) {
       if (barcodes.length <= 0) {
         return;
       } else {
-        let barcode = barcodes[0].rawValue
-        getData(barcode)
+        const barcode = barcodes[0].rawValue
+        window.location.hash = 'product/' + barcode;
       }
     }, 1000)
 };
