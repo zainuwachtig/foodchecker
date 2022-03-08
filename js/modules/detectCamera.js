@@ -11,7 +11,7 @@ async function detectCamera() {
       },
     });
     camera.srcObject = stream;
-    // Deze if statement misschien beter in de states.js zetten?
+
     if (stream.getVideoTracks().length > 0) {
         melding.classList.add('onzichtbaar')
     }

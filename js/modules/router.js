@@ -1,12 +1,12 @@
-import { detectBarcode } from "./detectBarcode";
-import routie from "./vendor/routie";
+import { Routie } from "./vendor/routie.js";
+import { getData } from './getData.js'
 
-export function handleRoutes() {
-    routie(
-        {
-        'scanning': () => {
-            detectBarcode;
-        }
-        }
-    )
-}
+function handleRoutes() {
+    routie({
+		':barcode': barcode => {
+			getData(barcode)
+		},
+	})
+};
+
+export { handleRoutes }
