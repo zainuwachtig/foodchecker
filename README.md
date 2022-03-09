@@ -18,6 +18,8 @@ De oplossing voor de user story is foodchecker, deze applicatie scant barcodes m
 
 Voor foodchecker is gebruik gemaakt van de [Barcode Detection API ](https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API) om de producten te scannen en de [Open Food API](https://world.openfoodfacts.org/data) om de gescande producten op te halen uit de database.
 
+In de Open Food API staan producten die gebruikers zelf kunnen aanvullen met bijvoorbeeld hoeveel suikers erin een product zitten, land van herkomst en of het e-nummers bevat.
+
 ## Overige externe databronnen
 
 Foodchecker maakt gebruik van de hash routing van [routie.js](http://projects.jga.me/routie/).
