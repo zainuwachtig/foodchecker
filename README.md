@@ -14,6 +14,10 @@ Als foodie, wil ik tijdens het boodschappen doen een product kunnen scannen, zod
 
 De oplossing voor de user story is foodchecker, deze applicatie scant barcodes met behulp van de Barcode Detection API. De Barcode Detection is een API waarmee je barcodes kan scannen met de camera van je laptop en telefoon. Maar helaas wordt het niet door veel browsers ondersteund, zoals Safari en Chrome voor IOS. Wanneer het wel gelukt is om te scannen krijg je de naam van het product.
 
+## Activity Diagram
+
+![Activity Diagram](Activity-Diagram.png)
+
 ## Gebruikte API's
 
 Voor foodchecker is gebruik gemaakt van de [Barcode Detection API ](https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API) om de producten te scannen en de [Open Food API](https://world.openfoodfacts.org/data) om de gescande producten op te halen uit de database.
